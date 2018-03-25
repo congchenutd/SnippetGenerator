@@ -1,30 +1,30 @@
 // THIS PROGRAM IS CONFIDENTIAL AND PROPRIETARY TO ARGO AI, LLC ("ARGO"),
 // AND MAY NOT BE COPIED, REPRODUCED, MODIFIED, OR DISTRIBUTED WITHOUT
 // ARGO'S PERMISSION.
-// Copyright (c) 2018 Argo AI, LLC.
+// Copyright (c) $YEAR$ Argo AI, LLC.
 
-#include "$PLUGIN_NAME$.hh"
+#include "$COMPONENT_NAME$.hh"
 
 #include <PluginManagement/PluginUtils.hh>
 
 $NAMESPACE_START$
 
-$PLUGIN_NAME$::$PLUGIN_NAME$()
-  : Visualization::TemplatedPluginInterfaceHelper<$PLUGIN_NAME$Config>("$PLUGIN_DESCRIPTION$")
+$COMPONENT_NAME$::$COMPONENT_NAME$()
+  : Visualization::TemplatedPluginInterfaceHelper<$COMPONENT_NAME$Config>("$PLUGIN_DESCRIPTION$")
 {
 }
 
-bool $PLUGIN_NAME$::can_draw() const
+bool $COMPONENT_NAME$::can_draw() const
 {
   return false;
 }
 
-QWidget* $PLUGIN_NAME$::get_widget() const
+QWidget* $COMPONENT_NAME$::get_widget() const
 {
   return widget_.get();
 }
 
-void $PLUGIN_NAME$::on_init()
+void $COMPONENT_NAME$::on_init()
 {
   Time::ExpectedTimeProvider expected_time_provider = Time::get_time_provider();
   if (!expected_time_provider)
@@ -37,12 +37,12 @@ void $PLUGIN_NAME$::on_init()
   widget_ = std::make_unique<$WIDGET_NAME$>();
 }
 
-void $PLUGIN_NAME$::update()
+void $COMPONENT_NAME$::update()
 {
 
 }
 
 // Define a dynamic plugin creation function that the PluginManager can lookup and invoke.
-PLUGIN_CREATE_FUNCTION_IMPL($PLUGIN_NAME$, $PLUGIN_NAME$)
+PLUGIN_CREATE_FUNCTION_IMPL($COMPONENT_NAME$, $COMPONENT_NAME$)
 
 $NAMESPACE_END$

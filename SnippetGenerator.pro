@@ -23,15 +23,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         Main.cpp \
-        MainWindow.cpp \
-    PluginConfigDlg.cpp \
-    Template.cpp
+    Template.cpp \
+    Wizard.cpp \
+    ComponentTypePage.cpp \
+    ConfigPage.cpp
 
 HEADERS += \
-        MainWindow.h \
-    PluginConfigDlg.h \
-    Template.h
+    Template.h \
+    Wizard.h \
+    ComponentTypePage.h \
+    ConfigPage.h
 
 FORMS += \
-        MainWindow.ui \
-    PluginConfigDlg.ui
+    ConfigWidget.ui \
+    WelcomeWidget.ui

@@ -1,5 +1,4 @@
-#ifndef TEMPLATE_H
-#define TEMPLATE_H
+#pragma once
 
 #include <QString>
 
@@ -9,23 +8,10 @@ class Template
 {
 public:
   Template(const QString& path);
-  virtual ~Template() = default;
+  ~Template() = default;
 
-  QString getPath() const;
-  void setPath(const QString& path);
-
-  virtual void run(const QJsonObject& config) const = 0;
+  void run(const QJsonObject& config) const;
 
 protected:
   QString _path;
 };
-
-class PluginTemplate: public Template
-{
-public:
-  PluginTemplate(const QString& path);
-
-  void run(const QJsonObject& config) const;
-};
-
-#endif // TEMPLATE_H

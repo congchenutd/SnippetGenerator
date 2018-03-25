@@ -3,9 +3,9 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt5Core)
 
 argo_add_plugin(
-  TARGET  $PLUGIN_NAME$
+  TARGET  $COMPONENT_NAME$
   SCHEMAS $CONFIG_NAME$.asl
-  SOURCES $PLUGIN_NAME$.cc
+  SOURCES $COMPONENT_NAME$.cc
           $CONFIG_NAME$.cc
   LIBS    $WIDGET_NAME$
           Config

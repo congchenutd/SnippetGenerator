@@ -1,7 +1,7 @@
 // THIS PROGRAM IS CONFIDENTIAL AND PROPRIETARY TO ARGO AI, LLC ("ARGO"),
 // AND MAY NOT BE COPIED, REPRODUCED, MODIFIED, OR DISTRIBUTED WITHOUT
 // ARGO'S PERMISSION.
-// Copyright (c) 2018 Argo AI, LLC.
+// Copyright (c) $YEAR$ Argo AI, LLC.
 
 #pragma once
 
@@ -14,12 +14,12 @@
 
 $NAMESPACE_START$
 
-class $PLUGIN_NAME$ : public Visualization::TemplatedPluginInterfaceHelper<$CONFIG_NAME$>
+class $COMPONENT_NAME$ : public Visualization::TemplatedPluginInterfaceHelper<$CONFIG_NAME$>
 {
 public:
-  $PLUGIN_NAME$();
-  ~$PLUGIN_NAME$() override = default;
-  NONCOPYABLE_AND_NONMOVABLE($PLUGIN_NAME$)
+  $COMPONENT_NAME$();
+  ~$COMPONENT_NAME$() override = default;
+  NONCOPYABLE_AND_NONMOVABLE($COMPONENT_NAME$)
 
   /// @brief Whether or not the plugin has the ability to draw on the GL window.  False.
   bool can_draw() const override;
@@ -39,10 +39,11 @@ private:
   /// @brief Pointer to global time provider
   std::shared_ptr<Time::TimeProvider> time_provider_;
 
+  /// @brief Widget of this plugin
   std::unique_ptr<$WIDGET_NAME$> widget_{nullptr};
 };
 
 // Define a dynamic plugin creation function that the PluginManager can lookup and invoke.
-PLUGIN_CREATE_FUNCTION_DECL($PLUGIN_NAME$, $PLUGIN_NAME$)
+PLUGIN_CREATE_FUNCTION_DECL($COMPONENT_NAME$, $COMPONENT_NAME$)
 
 $NAMESPACE_END$

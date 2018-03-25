@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ConfigWidget</class>
+ <widget class="QWidget" name="ConfigWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>424</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Config</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="labelFolderName">
+     <property name="text">
+      <string>Folder name</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="leFolderName"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="labelDescription">
+     <property name="text">
+      <string>Description</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="lePluginDescription"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="labelComponentName">
+     <property name="text">
+      <string>Component name</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="leComponentName"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="labelWidgetName">
+     <property name="text">
+      <string>Widget name</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="leWidgetName"/>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="labelConfigName">
+     <property name="text">
+      <string>Config name</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLineEdit" name="leConfigName"/>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="labelNamespaces">
+     <property name="text">
+      <string>Namespace</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLineEdit" name="leNamespaces"/>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
