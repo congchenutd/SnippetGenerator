@@ -6,8 +6,9 @@
 import Config.ConfigReference
 import Task.TaskConfig
 
-namespace($NAMESPACE_ONE_LINE_SEPARATED_BY_DOT$)
+namespace($NAMESPACE_DOT$)
 
 @access(read=public, write=public)
-@minimum_version(0)
+@minimum_version(1)
 class $CONFIG_NAME$ (Argo.Task.TaskConfig @0):
+  just_a_placeholder = bool(true) @1

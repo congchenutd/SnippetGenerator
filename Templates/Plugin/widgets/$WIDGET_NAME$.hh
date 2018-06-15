@@ -5,24 +5,33 @@
 
 #pragma once
 
-#include <$FOLDER_NAME$/widgets/ui_$WIDGET_NAME$.h>  // Autogen.
-
 #include <ClassHelper/ClassHelpers.hh>
+
+#include <QWidget>
 
 #include <memory>
 
-$NAMESPACE_START$
+namespace Ui
+{
+  class $WIDGET_NAME$UI;
+}
+
+namespace $NAMESPACE_DOUBLE_COLON$
+{
 
 class $WIDGET_NAME$ : public QWidget
 {
 public:
   $WIDGET_NAME$();
-  NONCOPYABLE_AND_NONMOVABLE($WIDGET_NAME$)
-  ~$WIDGET_NAME$() override = default;
+  ~$WIDGET_NAME$() override;
+  COPY_CONSTRUCT($WIDGET_NAME$) = delete;
+  COPY_ASSIGN($WIDGET_NAME$) = delete;
+  MOVE_CONSTRUCT($WIDGET_NAME$) = delete;
+  MOVE_ASSIGN($WIDGET_NAME$) = delete;
 
 private:
   /// @brief Pointer to the Qt auto-generated type.
   std::unique_ptr<Ui::$WIDGET_NAME$UI> ui_;
 };
 
-$NAMESPACE_END$
+}  // namespace $NAMESPACE_DOUBLE_COLON$

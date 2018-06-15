@@ -15,8 +15,9 @@ Wizard::Wizard(QWidget* parent)
 
 void Wizard::accept()
 {
-  const QString templatePath = field("IsPlugin").toBool() ? "Templates/Plugin"
-                                                          : "Templates/Task";
+  const ComponentType componentType = static_cast<ComponentType>(field("ComponentType").toInt());
+  const QString componentTypeName = getComponentTypeName(componentType);
+  const QString templatePath = "Templates/" + componentTypeName;
   Template snippetTemplate(templatePath);
   snippetTemplate.run(_pageConfig->getConfig());
   QWizard::accept();

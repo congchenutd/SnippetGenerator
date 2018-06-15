@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>820</width>
+    <height>676</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,18 +15,45 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QRadioButton" name="radioPlugin">
-     <property name="text">
-      <string>Plugin</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QRadioButton" name="radioTask">
-     <property name="text">
-      <string>Task</string>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Component type:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboComponentType">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <item>
+        <property name="text">
+         <string>Plugin</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Task</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Test</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Class</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <spacer name="verticalSpacer">

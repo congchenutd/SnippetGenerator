@@ -9,11 +9,12 @@
 
 #include <Config/ConfigBuilder.hh>
 
-$NAMESPACE_START$
+namespace $NAMESPACE_DOUBLE_COLON$
+{
 
 class $CONFIG_NAME$ : public $CONFIG_NAME$Impl
 {
   DECL_CONFIG_TYPE($CONFIG_NAME$)
 };
 
-$NAMESPACE_END$
+}  // namespace $NAMESPACE_DOUBLE_COLON$

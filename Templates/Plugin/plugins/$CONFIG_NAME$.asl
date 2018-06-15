@@ -6,8 +6,9 @@
 import Config.Config
 import Config.ConfigReference
 
-namespace($NAMESPACE_ONE_LINE_SEPARATED_BY_DOT$)
+namespace($NAMESPACE_DOT$)
 
 @access(read=public, write=public)
-@minimum_version(0)
+@minimum_version(1)
 class $CONFIG_NAME$ (Argo.Config.Config @0):
+  test = bool(true) @1

@@ -1,16 +1,19 @@
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
-find_package(Qt5Core)
+
+argo_add_schema(TARGET  $CONFIG_NAME$
+                SOURCES $CONFIG_NAME$.asl
+                        $CONFIG_NAME$.cc
+                LIBS    Config
+                )
 
 argo_add_plugin(
   TARGET  $COMPONENT_NAME$
-  SCHEMAS $CONFIG_NAME$.asl
+  SCHEMAS $CONFIG_NAME$
   SOURCES $COMPONENT_NAME$.cc
-          $CONFIG_NAME$.cc
   LIBS    $WIDGET_NAME$
-          Config
           DebugLog
+          PluginUtils
           Time
           TemplatedPluginInterfaceHelper
-          PluginUtils
 )

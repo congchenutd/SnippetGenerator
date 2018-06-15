@@ -12,14 +12,18 @@
 #include <PluginManagement/PluginMacros.hh>
 #include <Visualization/gui/TemplatedPluginInterfaceHelper.hh>
 
-$NAMESPACE_START$
+namespace $NAMESPACE_DOUBLE_COLON$
+{
 
 class $COMPONENT_NAME$ : public Visualization::TemplatedPluginInterfaceHelper<$CONFIG_NAME$>
 {
 public:
   $COMPONENT_NAME$();
   ~$COMPONENT_NAME$() override = default;
-  NONCOPYABLE_AND_NONMOVABLE($COMPONENT_NAME$)
+  COPY_CONSTRUCT($COMPONENT_NAME$) = delete;
+  COPY_ASSIGN($COMPONENT_NAME$) = delete;
+  MOVE_CONSTRUCT($COMPONENT_NAME$) = delete;
+  MOVE_ASSIGN($COMPONENT_NAME$) = delete;
 
   /// @brief Whether or not the plugin has the ability to draw on the GL window.  False.
   bool can_draw() const override;
@@ -40,10 +44,10 @@ private:
   std::shared_ptr<Time::TimeProvider> time_provider_;
 
   /// @brief Widget of this plugin
-  std::unique_ptr<$WIDGET_NAME$> widget_{nullptr};
+  std::unique_ptr<$WIDGET_NAME$> widget_;
 };
 
 // Define a dynamic plugin creation function that the PluginManager can lookup and invoke.
 PLUGIN_CREATE_FUNCTION_DECL($COMPONENT_NAME$, $COMPONENT_NAME$)
 
-$NAMESPACE_END$
+}  // namespace $NAMESPACE_DOUBLE_COLON$

@@ -3,18 +3,14 @@
 // ARGO'S PERMISSION.
 // Copyright (c) $YEAR$ Argo AI, LLC.
 
-#pragma once
-
-#include <$FOLDER_NAME$/$CONFIG_NAME$Impl.hh>
-
-#include <Config/ConfigBuilder.hh>
+#include "$COMPONENT_NAME$.hh"
 
 namespace $NAMESPACE_DOUBLE_COLON$
 {
 
-class $CONFIG_NAME$ : public $CONFIG_NAME$Impl
+$COMPONENT_NAME$::$COMPONENT_NAME$()
 {
-  DECL_CONFIG_TYPE($CONFIG_NAME$)
-};
+
+}
 
 }  // namespace $NAMESPACE_DOUBLE_COLON$

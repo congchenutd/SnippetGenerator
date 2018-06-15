@@ -5,10 +5,10 @@
 
 #include "$COMPONENT_NAME$.hh"
 
-#include <Comms/ZMQ/ZMQFactory.hh>
 #include <Task/TaskRunner.hh>
 
-$NAMESPACE_START$
+namespace $NAMESPACE_DOUBLE_COLON$
+{
 
 void $COMPONENT_NAME$::init()
 {
@@ -16,7 +16,9 @@ void $COMPONENT_NAME$::init()
   config_ = get_task_config<$CONFIG_NAME$>();
   if (!config_)
   {
-    ARGO_THROW_LOG_ERROR(std::runtime_error, "Load config failed.");
+    LOG_ERROR("Unable to load task config for $COMPONENT_NAME$. Shutting down the task.");
+    shutdown_task();
+    return;
   }
 }
 
@@ -25,11 +27,11 @@ void $COMPONENT_NAME$::exec()
 
 }
 
-void DiagnosticsValiditySignalTestTask::shutdown()
+void $COMPONENT_NAME$::shutdown()
 {
-  LOG_INFO("Shutdown");
+  LOG_INFO("$COMPONENT_NAME$ is shut down.");
 }
 
-$NAMESPACE_END$
+}  // namespace $NAMESPACE_DOUBLE_COLON$
 
-TASK_MAIN_ZMQ($NAMESPACE_ONE_LINE_SEPARATED_BY_DOUBLE_COLON$::$COMPONENT_NAME$)
+TASK_MAIN($NAMESPACE_DOUBLE_COLON$::$COMPONENT_NAME$)

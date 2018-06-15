@@ -4,8 +4,10 @@
 // Copyright (c) $YEAR$ Argo AI, LLC.
 
 #include "$WIDGET_NAME$.hh"
+#include <$FOLDER_NAME$/widgets/ui_$WIDGET_NAME$.h>
 
-$NAMESPACE_START$
+namespace $NAMESPACE_DOUBLE_COLON$
+{
 
 $WIDGET_NAME$::$WIDGET_NAME$()
 {
@@ -13,4 +15,6 @@ $WIDGET_NAME$::$WIDGET_NAME$()
   ui_->setupUi(this);
 }
 
-$NAMESPACE_END$
+$WIDGET_NAME$::~$WIDGET_NAME$() = default;
+
+}  // namespace $NAMESPACE_DOUBLE_COLON$

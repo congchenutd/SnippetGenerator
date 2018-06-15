@@ -7,7 +7,8 @@
 
 #include <PluginManagement/PluginUtils.hh>
 
-$NAMESPACE_START$
+namespace $NAMESPACE_DOUBLE_COLON$
+{
 
 $COMPONENT_NAME$::$COMPONENT_NAME$()
   : Visualization::TemplatedPluginInterfaceHelper<$COMPONENT_NAME$Config>("$PLUGIN_DESCRIPTION$")
@@ -45,4 +46,4 @@ void $COMPONENT_NAME$::update()
 // Define a dynamic plugin creation function that the PluginManager can lookup and invoke.
 PLUGIN_CREATE_FUNCTION_IMPL($COMPONENT_NAME$, $COMPONENT_NAME$)
 
-$NAMESPACE_END$
+}  // namespace $NAMESPACE_DOUBLE_COLON$

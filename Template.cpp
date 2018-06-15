@@ -11,39 +11,15 @@
  * @param fileContent Content of a template
  * @param ns          Namespace value
  */
-void applyNamespace(QString& fileContent, const QStringList& namespaces)
+void applyNamespace(QString& fileContent, const QStringList& namespaceSections)
 {
-  // brace enclosed in c++ code
-  if (namespaces.isEmpty())
-  {
-    fileContent.remove("$NAMESPACE_START$", Qt::CaseSensitive);
-    fileContent.remove("$NAMESPACE_END$", Qt::CaseSensitive);
-    return;
-  }
-
-  QString namespaceStart;
-  for (const QString& section: namespaces)
-  {
-    namespaceStart += "namespace " + section + "\n{\n";
-  }
-  namespaceStart = namespaceStart.left(namespaceStart.length() - 1);  // remove last \n
-
-  QString namespaceEnd;
-  for (int i = namespaces.length() - 1; i >= 0; --i)
-  {
-    namespaceEnd += "}  // namespace " + namespaces.at(i) + "\n";
-  }
-  namespaceEnd = namespaceEnd.left(namespaceEnd.length() - 1);  // remove last \n
-
-  fileContent.replace("$NAMESPACE_START$", namespaceStart, Qt::CaseSensitive);
-  fileContent.replace("$NAMESPACE_END$", namespaceEnd, Qt::CaseSensitive);
-
-  const QString oneLineSeparatedByDoubleColon = namespaces.join("::");
-  fileContent.replace("$NAMESPACE_ONE_LINE_SEPARATED_BY_DOUBLE_COLON$", oneLineSeparatedByDoubleColon);
+  // one-line namespace in c++
+  const QString namespaceDoubleColon = namespaceSections.join("::");
+  fileContent.replace("$NAMESPACE_DOUBLE_COLON$", namespaceDoubleColon, Qt::CaseSensitive);
 
   // one-line namespace in asl
-  const QString oneLineSeparatedByDot = namespaces.join(".");
-  fileContent.replace("$NAMESPACE_ONE_LINE_SEPARATED_BY_DOT$", oneLineSeparatedByDot);
+  const QString namespaceDot = namespaceSections.join(".");
+  fileContent.replace("$NAMESPACE_DOT$", namespaceDot);
 }
 
 void applyYear(QString& fileContent)
@@ -74,7 +50,7 @@ void applyTemplate(const QString& templateFilePath, const QString& outputFilePat
     content.replace(key, config.value(key).toString(), Qt::CaseSensitive);
   }
 
-  applyNamespace(content, config.value("$NAMESPACES$").toString().split("::"));
+  applyNamespace(content, config.value("$NAMESPACE$").toString().split("::"));
   applyYear(content);
 
   QTextStream os(&outputFile);

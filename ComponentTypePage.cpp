@@ -1,19 +1,16 @@
 #include "ComponentTypePage.h"
 
+QString getComponentTypeName(ComponentType componentType)
+{
+  const std::vector<QString> string_values{"Plugin", "Task", "Test", "Class", "NUM_VALUES"};
+  return string_values[static_cast<int>(componentType)];
+}
+
 ComponentTypePage::ComponentTypePage(QWidget *parent) :
   QWizardPage(parent)
 {
   ui.setupUi(this);
 
   setTitle("Select component type");
-  registerField("IsPlugin", ui.radioPlugin);
-  registerField("IsTask", ui.radioTask);
-
-  connect(ui.radioPlugin, SIGNAL(clicked(bool)), SIGNAL(completeChanged()));
-  connect(ui.radioTask,   SIGNAL(clicked(bool)), SIGNAL(completeChanged()));
-}
-
-bool ComponentTypePage::isComplete() const
-{
-  return ui.radioPlugin->isChecked() || ui.radioTask->isChecked();
+  registerField("ComponentType", ui.comboComponentType);
 }
